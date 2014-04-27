@@ -3,14 +3,16 @@ $(document).ready(function(){
   var player1 = [];
   var player2 = [];
 
-  // var win1 = ['box1', 'box2', 'box3'];
-  // var win2 = ['box4', 'box5', 'box6'];
-  // var win3 = ['box7', 'box8', 'box9'];
-  // var win4 =['box1', 'box4', 'box7'];
-  // var win5 =['box2', 'box5', 'box8'];
-  // var win6 =['box3', 'box6', 'box9'];
-  // var win7 =['box1', 'box5', 'box9'];
-  // var win8 =['box3', 'box5', 'box7'];
+  // var win = [
+  // ['box1', 'box2', 'box3'], 
+  // ['box4', 'box5', 'box6'],
+  // ['box7', 'box8', 'box9'],
+  // ['box1', 'box4', 'box7'],
+  // ['box2', 'box5', 'box8'],
+  // ['box3', 'box6', 'box9'],
+  // ['box1', 'box5', 'box9'],
+  // ['box3', 'box5', 'box7']
+  // ];
 
   $('td').one('click', function() 
   {
@@ -27,16 +29,19 @@ $(document).ready(function(){
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 1 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box4.textContent === 'X' && box5.textContent === 'X' && box6.textContent === 'X')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 1 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box7.textContent === 'X' && box8.textContent === 'X' && box9.textContent === 'X')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 1 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
 
       //vertical wins
@@ -44,16 +49,19 @@ $(document).ready(function(){
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 1 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box2.textContent === 'X' && box5.textContent === 'X' && box8.textContent === 'X')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 1 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box3.textContent === 'X' && box6.textContent === 'X' && box9.textContent === 'X')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 1 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
 
       //diagonal wins
@@ -61,11 +69,13 @@ $(document).ready(function(){
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 1 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box3.textContent === 'X' && box5.textContent === 'X' && box7.textContent === 'X')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 1 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
     }
 
@@ -81,16 +91,19 @@ $(document).ready(function(){
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 2 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box4.textContent === 'O' && box5.textContent === 'O' && box6.textContent === 'O')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 2 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box7.textContent === 'O' && box8.textContent === 'O' && box9.textContent === 'O')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 2 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
 
       //vertical wins
@@ -98,16 +111,19 @@ $(document).ready(function(){
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 2 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box2.textContent === 'O' && box5.textContent === 'O' && box8.textContent === 'O')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 2 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box3.textContent === 'O' && box6.textContent === 'O' && box9.textContent === 'O')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 2 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
 
       //diagonal wins
@@ -115,11 +131,13 @@ $(document).ready(function(){
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 2 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
       else if(box3.textContent === 'O' && box5.textContent === 'O' && box7.textContent === 'O')
       {
         $('p').replaceWith("<h1 class = 'win-msg'>Player 2 wins!</h1>");
         $('td').off('click');
+        return playAgain();
       }
     }
     turn++;
@@ -127,18 +145,37 @@ $(document).ready(function(){
     if (turn === 9)
     {
       $('p').replaceWith("<h1 class = 'tie-msg'>Well, that was a snoozefest ...</h1>");
+      return playAgain();
     }
 
   });
 
-// reset game button
-  // function playAgain()
-  // {
-  //   var btn = $('body').append('<button class="play-again">Play Again</button>');
-  //   $(btn).click(function()
-  //   {
-  //     history.go(0);
-  //   });
-  // }
+  // play again
+  function playAgain()
+  {
+    $('#play-again').mouseover(function()
+    {
+      $(this).css(
+        {
+          'background-color': 'rgba(46, 204, 113,1.0)',
+          'color': 'white',
+          'cursor': 'pointer'
+        });
+    });
+
+    $('#play-again').mouseleave(function()
+    {
+      $(this).css(
+        {
+          'background-color': 'white',
+          'color': 'black'
+        });
+    });
+
+    $('#play-again').click(function()
+    {
+      location.reload();
+    });
+  } 
 
 });
