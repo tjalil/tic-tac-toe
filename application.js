@@ -15,27 +15,23 @@ $(document).ready(function(){
 
 
   $('td').one('click', function() {
-    if (turn % 2 === 0)
-    { var id = $(this).attr("id");
+    if (turn % 2 === 0) { 
+      var id = $(this).attr("id");
       player1.push(id);
       $(this).css('background-color', 'red');
       $('p').replaceWith("<p>Player 2 turn</p>");
 
+      for(var i = 0; i < player1.length; i++) {
+        for(var j = 0; j < 3; j++) {
+          if ($.inArray(answers[i][j], player1[i]) !== -1 ) {
+            
 
-
-      for(var i = 0; i < player1.length; i++)
-      {
-        for(var j = 0; j < answers[i].length; j++)
-        {
-          // console.log(player1);
-          if ($.inArray(answers[i][j], player1[i]) !== -1 )
-          {
             $('p').append("Player 1 wins!")
           }
         }
       }
 
-      }
+    }
     else
     { var id = $(this).attr("id");
       player2.push(id);
