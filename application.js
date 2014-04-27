@@ -124,6 +124,21 @@ $(document).ready(function(){
     }
     turn++;
 
+    if (turn === 9)
+    {
+      $('p').replaceWith("<h1 class = 'tie-msg'>Well, that was a snoozefest ...</h1>");
+    }
+
   });
+
+// reset game button
+  // function playAgain()
+  // {
+  //   var btn = $('body').append('<button class="play-again">Play Again</button>');
+  //   $(btn).click(function()
+  //   {
+  //     history.go(0);
+  //   });
+  // }
 
 });
