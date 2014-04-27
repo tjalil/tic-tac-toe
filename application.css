@@ -24,22 +24,28 @@ time, mark, audio, video {
 html, body
 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  text-align: center;
 }
 
 h1
 {
-  font-size: 4rem;
+  font-size: 2rem;
+}
+
+p
+{
+  font-size: 2rem;
+  background-color: rgba(231, 76, 60,0.7);
+  text-align: center;
 }
 
 span
 {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 table
 {
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 
 .box
@@ -48,5 +54,24 @@ table
   width: 200px;
   height: 200px;
   text-align: center;
-  background-color: green;
+  background-color: grey;
+  font-size: 9rem;
 }
+
+.win-msg
+{
+  font-size: 4rem;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #2ecc71;
+  text-align: center;
+}
+
+.tie-msg
+{
+  margin-top: 10px;
+  padding: 5px;
+  background-color: orange;
+}
+
+
